@@ -1,0 +1,18 @@
+docker run -d -it  --name exercise5-it  ubuntu:16.04 sh -c 'echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website; done'
+
+docker exec -it exercise5-it bash
+apt-get update
+apt-get install curl wget
+exit
+
+docker attach exercise5-it
+
+helsinki.fi
+Searching..
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>301 Moved Permanently</title>
+</head><body>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
+</body></html>
