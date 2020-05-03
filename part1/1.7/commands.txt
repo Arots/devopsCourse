@@ -1,0 +1,37 @@
+docker build -t curler .
+Sending build context to Docker daemon  3.072kB
+Step 1/6 : FROM ubuntu:16.04
+ ---> 005d2078bdfa
+Step 2/6 : RUN apt-get update && apt-get install -y curl wget
+ ---> Using cache
+ ---> 278ce3a6a550
+Step 3/6 : COPY ./scriptfile.sh /
+ ---> 5eb1f48610c7
+Step 4/6 : RUN chmod +x /scriptfile.sh
+ ---> Running in fb12dbd02ce2
+Removing intermediate container fb12dbd02ce2
+ ---> 8f3e49af4dc2
+Step 5/6 : ENTRYPOINT ["/scriptfile.sh"]
+ ---> Running in f7fdf5ec2aab
+Removing intermediate container f7fdf5ec2aab
+ ---> 7d53758fa39b
+Step 6/6 : CMD ["bin/bash", "./scriptfile.sh"]
+ ---> Running in e38f123b1788
+Removing intermediate container e38f123b1788
+ ---> 431f73dd55bd
+Successfully built 431f73dd55bd
+Successfully tagged curler:latest
+
+
+docker run -it curler
+Input website:
+helsinki.fi
+Searching..
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>301 Moved Permanently</title>
+</head><body>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
+</body></html>
+
