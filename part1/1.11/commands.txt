@@ -1,0 +1,179 @@
+docker build -t exercise11 .
+Sending build context to Docker daemon  690.7kB
+Step 1/8 : FROM ubuntu
+ ---> 1d622ef86b13
+Step 2/8 : RUN apt-get update && apt-get install -y curl wget
+ ---> Using cache
+ ---> 983318a1426b
+Step 3/8 : RUN curl -sL https://deb.nodesource.com/setup_10.x | bash && apt-get install -y nodejs
+ ---> Running in 416320cf7ffe
+
+## Installing the NodeSource Node.js 10.x repo...
+
+
+## Populating apt-get cache...
+
++ apt-get update
+Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
+Get:2 http://archive.ubuntu.com/ubuntu focal-updates InRelease [107 kB]
+Get:3 http://security.ubuntu.com/ubuntu focal-security InRelease [107 kB]
+Get:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease [98.3 kB]
+Get:5 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [15.1 kB]
+Get:6 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [45.4 kB]
+Get:7 http://archive.ubuntu.com/ubuntu focal-backports/universe amd64 Packages [2903 B]
+Get:8 http://security.ubuntu.com/ubuntu focal-security/universe amd64 Packages [4592 B]
+Get:9 http://security.ubuntu.com/ubuntu focal-security/main amd64 Packages [37.0 kB]
+Fetched 417 kB in 1s (377 kB/s)
+Reading package lists...
+
+## Installing packages required for setup: lsb-release gnupg...
+
++ apt-get install -y lsb-release gnupg > /dev/null 2>&1
+
+## Confirming "focal" is supported...
+
++ curl -sLf -o /dev/null 'https://deb.nodesource.com/node_10.x/dists/focal/Release'
+
+## Adding the NodeSource signing key to your keyring...
+
++ curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
+Warning: apt-key output should not be parsed (stdout is not a terminal)
+OK
+
+## Creating apt sources list file for the NodeSource Node.js 10.x repo...
+
++ echo 'deb https://deb.nodesource.com/node_10.x focal main' > /etc/apt/sources.list.d/nodesource.list
++ echo 'deb-src https://deb.nodesource.com/node_10.x focal main' >> /etc/apt/sources.list.d/nodesource.list
+
+## Running `apt-get update` for you...
+
++ apt-get update
+Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu focal-security InRelease
+Get:5 https://deb.nodesource.com/node_10.x focal InRelease [4583 B]
+Get:6 https://deb.nodesource.com/node_10.x focal/main amd64 Packages [771 B]
+Fetched 5354 B in 2s (3398 B/s)
+Reading package lists...
+
+## Run `sudo apt-get install -y nodejs` to install Node.js 10.x and npm
+## You may also need development tools to build native addons:
+     sudo apt-get install gcc g++ make
+## To install the Yarn package manager, run:
+     curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+     sudo apt-get update && sudo apt-get install yarn
+
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  libpython2-stdlib libpython2.7-minimal libpython2.7-stdlib python2
+  python2-minimal python2.7 python2.7-minimal
+Suggested packages:
+  python2-doc python-tk python2.7-doc binutils binfmt-support
+The following NEW packages will be installed:
+  libpython2-stdlib libpython2.7-minimal libpython2.7-stdlib nodejs python2
+  python2-minimal python2.7 python2.7-minimal
+0 upgraded, 8 newly installed, 0 to remove and 0 not upgraded.
+Need to get 19.9 MB of archives.
+After this operation, 98.1 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu focal/universe amd64 libpython2.7-minimal amd64 2.7.18~rc1-2 [335 kB]
+Get:2 https://deb.nodesource.com/node_10.x focal/main amd64 nodejs amd64 10.20.1-focal-1nodesource1 [16.1 MB]
+Get:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 python2.7-minimal amd64 2.7.18~rc1-2 [1302 kB]
+Get:4 http://archive.ubuntu.com/ubuntu focal/universe amd64 python2-minimal amd64 2.7.17-2ubuntu4 [27.5 kB]
+Get:5 http://archive.ubuntu.com/ubuntu focal/universe amd64 libpython2.7-stdlib amd64 2.7.18~rc1-2 [1880 kB]
+Get:6 http://archive.ubuntu.com/ubuntu focal/universe amd64 python2.7 amd64 2.7.18~rc1-2 [248 kB]
+Get:7 http://archive.ubuntu.com/ubuntu focal/universe amd64 libpython2-stdlib amd64 2.7.17-2ubuntu4 [7072 B]
+Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 python2 amd64 2.7.17-2ubuntu4 [26.5 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 19.9 MB in 4s (4912 kB/s)
+Selecting previously unselected package libpython2.7-minimal:amd64.
+(Reading database ... 5717 files and directories currently installed.)
+Preparing to unpack .../0-libpython2.7-minimal_2.7.18~rc1-2_amd64.deb ...
+Unpacking libpython2.7-minimal:amd64 (2.7.18~rc1-2) ...
+Selecting previously unselected package python2.7-minimal.
+Preparing to unpack .../1-python2.7-minimal_2.7.18~rc1-2_amd64.deb ...
+Unpacking python2.7-minimal (2.7.18~rc1-2) ...
+Selecting previously unselected package python2-minimal.
+Preparing to unpack .../2-python2-minimal_2.7.17-2ubuntu4_amd64.deb ...
+Unpacking python2-minimal (2.7.17-2ubuntu4) ...
+Selecting previously unselected package libpython2.7-stdlib:amd64.
+Preparing to unpack .../3-libpython2.7-stdlib_2.7.18~rc1-2_amd64.deb ...
+Unpacking libpython2.7-stdlib:amd64 (2.7.18~rc1-2) ...
+Selecting previously unselected package python2.7.
+Preparing to unpack .../4-python2.7_2.7.18~rc1-2_amd64.deb ...
+Unpacking python2.7 (2.7.18~rc1-2) ...
+Selecting previously unselected package libpython2-stdlib:amd64.
+Preparing to unpack .../5-libpython2-stdlib_2.7.17-2ubuntu4_amd64.deb ...
+Unpacking libpython2-stdlib:amd64 (2.7.17-2ubuntu4) ...
+Setting up libpython2.7-minimal:amd64 (2.7.18~rc1-2) ...
+Setting up python2.7-minimal (2.7.18~rc1-2) ...
+Linking and byte-compiling packages for runtime python2.7...
+Setting up python2-minimal (2.7.17-2ubuntu4) ...
+Selecting previously unselected package python2.
+(Reading database ... 6464 files and directories currently installed.)
+Preparing to unpack .../python2_2.7.17-2ubuntu4_amd64.deb ...
+Unpacking python2 (2.7.17-2ubuntu4) ...
+Selecting previously unselected package nodejs.
+Preparing to unpack .../nodejs_10.20.1-focal-1nodesource1_amd64.deb ...
+Unpacking nodejs (10.20.1-focal-1nodesource1) ...
+Setting up nodejs (10.20.1-focal-1nodesource1) ...
+Setting up libpython2.7-stdlib:amd64 (2.7.18~rc1-2) ...
+Setting up python2.7 (2.7.18~rc1-2) ...
+Setting up libpython2-stdlib:amd64 (2.7.17-2ubuntu4) ...
+Setting up python2 (2.7.17-2ubuntu4) ...
+Processing triggers for mime-support (3.64ubuntu1) ...
+Removing intermediate container 416320cf7ffe
+ ---> b21e67d2c1d2
+Step 4/8 : COPY backend-example-docker /backend-example-docker
+ ---> 77ee5ed412f5
+Step 5/8 : EXPOSE 8000
+ ---> Running in bf1abe96803d
+Removing intermediate container bf1abe96803d
+ ---> d3c0cbc64c76
+Step 6/8 : RUN cd backend-example-docker/ && npm install
+ ---> Running in 0b5b976c65e5
+
+> nodemon@1.18.9 postinstall /backend-example-docker/node_modules/nodemon
+> node bin/postinstall || exit 0
+
+Love nodemon? You can now support the project via the open collective:
+ > https://opencollective.com/nodemon/donate
+
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.12 (node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.12: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+
+added 482 packages from 283 contributors and audited 4739 packages in 7.808s
+found 0 vulnerabilities
+
+Removing intermediate container 0b5b976c65e5
+ ---> b11c3cbd9bdc
+Step 7/8 : WORKDIR /backend-example-docker
+ ---> Running in db6308b70068
+Removing intermediate container db6308b70068
+ ---> 70bbf06867a0
+Step 8/8 : CMD ["npm", "start"]
+ ---> Running in a9df7acfdb6b
+Removing intermediate container a9df7acfdb6b
+ ---> 1f7c74cbe383
+Successfully built 1f7c74cbe383
+Successfully tagged exercise11:latest
+otsoaro@FIMI000259 1.11 % docker run -it exercise10
+
+> frontend-example-docker@1.0.0 start /frontend-example-docker
+> webpack --mode production && serve -s -l 5000 dist
+
+
+
+
+
+docker run -it -v $(pwd)/logs.txt:/backend-example-docker/logs.txt -p 8000:8000 exercise11
+
+> backend-example-docker@1.0.0 start /backend-example-docker
+> cross-env NODE_ENV=production node index.js
+
+Browserslist: caniuse-lite is outdated. Please run next command `npm update caniuse-lite browserslist`
+Started on port 8000
