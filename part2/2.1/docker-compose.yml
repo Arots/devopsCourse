@@ -1,0 +1,10 @@
+version: '3.5'
+
+services:
+
+  compose-example:
+    image: devopsdockeruh/first_volume_exercise
+    build: .
+    volumes:
+      - /Users/otsoaro/Documents/devopsCourse/part2/2.1/logs.txt:/usr/app/logs.txt
+    container_name: compose-example
