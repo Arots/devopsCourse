@@ -1,0 +1,14 @@
+version: '3.5'
+
+services:
+  frontend:
+    image: 'exercise10'
+    ports:
+      - 5000:5000
+    build: .
+
+  backend:
+    image: 'exercise11'
+    ports:
+      - 8000:8000
+    build: .
